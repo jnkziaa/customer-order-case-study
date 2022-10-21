@@ -1,6 +1,5 @@
 package com.jnkziaa.customerordercasestudy.service;
 
-import com.jnkziaa.customerordercasestudy.dto.Product;
 import com.jnkziaa.customerordercasestudy.dto.ProductAdditionRequest;
 import com.jnkziaa.customerordercasestudy.entity.ProductInfo;
 import com.jnkziaa.customerordercasestudy.repository.ProductInfoRepository;

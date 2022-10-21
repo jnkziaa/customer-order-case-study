@@ -1,0 +1,7 @@
+package com.jnkziaa.customerordercasestudy.exception;
+
+public class OutOfStockException extends RuntimeException {
+    public OutOfStockException(String message) {
+        super(message);
+    }
+}

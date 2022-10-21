@@ -1,4 +1,4 @@
-/*package com.jnkziaa.customerordercasestudy.entity;
+package com.jnkziaa.customerordercasestudy.entity;
 
 
 import lombok.AllArgsConstructor;
@@ -19,10 +19,11 @@ public class ShoppingCartInfo {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name="uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    private Long oId;
+    private String oId;
 
-    @ElementCollection
-    private List<String> products;
+    private int productID;
+    private String productName;
+    private int productCount;
     private double totalCost;
+
 }
-*/
