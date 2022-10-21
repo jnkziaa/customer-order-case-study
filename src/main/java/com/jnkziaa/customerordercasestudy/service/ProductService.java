@@ -1,7 +1,9 @@
 package com.jnkziaa.customerordercasestudy.service;
 
 import com.jnkziaa.customerordercasestudy.dto.Product;
-import com.jnkziaa.customerordercasestudy.repository.ProductRepo;
+import com.jnkziaa.customerordercasestudy.dto.ProductAdditionRequest;
+import com.jnkziaa.customerordercasestudy.entity.ProductInfo;
+import com.jnkziaa.customerordercasestudy.repository.ProductInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,8 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class ProductService {
 
     @Autowired
-    ProductRepo productRepo;
+    ProductInfoRepository productInfoRepository;
 
+    /*
     @Transactional //connection starts here
     public void saveProductInfo(){
 
@@ -20,7 +23,7 @@ public class ProductService {
         for(int i = 1; i <= 10; i++){
             product.setIdPRODUCT(i);
             product.setPROD_NAME("Test Product "  + i);
-            productRepo.saveProduct(product);
+            productInfoRepository.saveProduct(product);
         }
 
 
@@ -28,4 +31,12 @@ public class ProductService {
 
     //commit
     //close
+
+     */
+
+    @Transactional
+    public void saveProductInfo(ProductAdditionRequest request){
+        ProductInfo productInfo = request.getProductInfo();
+        productInfoRepository.save(productInfo);
+    }
 }

@@ -24,20 +24,20 @@ public class CallTracker {
     public void logMethodPointCut(){
 
     }
-    @Before("logMethodPointCut()")
-    public void LogBeforeMethodCall(){
-        LOGGER.info("Product stored in the database");
-    }
 
     @Around("logMethodPointCut()")
-    public void LoggingMethodCall(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+    public Object LoggingMethodCall(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 
         //before
         LOGGER.info("Method Start : " + proceedingJoinPoint.getSignature().getName());
         Object proceedType = proceedingJoinPoint.proceed();
 
+        LOGGER.info("Product stored in the database");
+
         //after
-        LOGGER.info("Method Completed : " + proceedingJoinPoint.getSignature().getName());
+        LOGGER.info("Method Completed : " + proceedingJoinPoint.getSignature().getName() + " \n");
+
+        return proceedType;
     }
 
 }
