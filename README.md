@@ -7,7 +7,7 @@ Scuffed UML
 1. POST http://localhost:8080/api/addProduct
 
 Description : using talend API tester or Postman, we can add products to the database using a JSON file following 
-
+```
 Body:
 {
   "productInfo": {
@@ -28,13 +28,15 @@ Body:
   }
 }
 
+```
+
 
 
 2. GET  http://localhost:8080/api/getAllProducts
 
 Description : After using http://localhost:8080/api/addProduct, we can show all the available products using GET which would result in the following
 Response : 
-
+```
 [
     {
         "productName": "ZOOM TKL",
@@ -49,3 +51,4 @@ Response :
         "pid": 2
     }
 ]
+```
