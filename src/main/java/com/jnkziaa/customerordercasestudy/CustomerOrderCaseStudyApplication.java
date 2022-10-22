@@ -15,29 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
 public class CustomerOrderCaseStudyApplication {
 
-    @Autowired
-    private CustomerPurchaseService service;
-
-    @Autowired
-    private ProductService productService;
-
-    @PostMapping("/customerPurchase")
-    public CustomerPurchaseAcknowledgement customerPurchase(@RequestBody CustomerPurchaseRequest request) {
-        return service.customerPurchase(request);
-    }
-
-    @PostMapping("/addProduct")
-    public void addProduct(@RequestBody ProductAdditionRequest request){
-        productService.saveProductInfo(request);
-    }
-
-    @GetMapping("/productsAvailable")
-    public void showProducts(){
-
-    }
 
     public static void main(String[] args) {
 

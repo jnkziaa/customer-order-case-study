@@ -1,5 +1,6 @@
 package com.jnkziaa.customerordercasestudy.config;
 
+/*
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -37,3 +38,5 @@ public class ProductConfig {
         return new DataSourceTransactionManager(dataSource);
     }
 }
+
+ */

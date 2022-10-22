@@ -19,9 +19,9 @@ public class ShoppingCartInfo {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name="uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    private String oId;
+    private String oID;
 
-    private int productID;
+    private Long productID;
     private String productName;
     private int productCount;
     private double totalCost;

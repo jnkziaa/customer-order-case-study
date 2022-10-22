@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class CustomerInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long cId;
+    private Long cID;
 
 
     private String username;

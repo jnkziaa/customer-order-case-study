@@ -19,6 +19,7 @@ public class ProductInfo {
     private Long pID;
 
     private String productName;
-    private int productCount;
+    private int productAvailableQuantity;
     private double productPrice;
+
 }
