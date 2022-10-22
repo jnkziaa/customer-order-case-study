@@ -90,3 +90,44 @@ Would result in
     "orderID": 29
 }
 ```
+which contains the total amount of in dollars of the products we had in the shopping cart, contains a random invoiceNumber, the purchase date, and the order optional order description we wanted.
+
+4. GET http://localhost:9090/api/getOrder/27
+
+Description : By grabbing the OrderID from the previous step, we can retrieve the whole order information which contains the productName, the amount of quantities we bought, contains the the total cost, the optional orderDescription, customer's username, customer's email and lastly (supposedly) the customer's current remaining balance.
+
+```
+{
+    "orderDescription": "Buying keyboards just cuz",
+    "cartItems": [
+        {
+            "productID": 4,
+            "productName": "Goose Orion",
+            "productCount": 1,
+            "totalCost": 80.99,
+            "oid": "92e959ef-9ef3-4868-aefa-1256bd5e229a"
+        },
+        {
+            "productID": 1,
+            "productName": "ZOOM TKL",
+            "productCount": 5,
+            "totalCost": 899.95,
+            "oid": "b18265a8-aee1-40bd-a125-c9b1c8d8b67a"
+        },
+        {
+            "productID": 2,
+            "productName": "AR87 TKL",
+            "productCount": 1,
+            "totalCost": 314.99,
+            "oid": "bc9d28ba-cb96-4af2-9b3d-2f984e479441"
+        }
+    ],
+    "customer": {
+        "username": null,
+        "email": "john.albesa@email.com",
+        "currentBalance": 10000.0,
+        "cid": 7
+    },
+    "oid": 27
+}
+```
