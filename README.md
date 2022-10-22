@@ -105,29 +105,29 @@ Description : By grabbing the OrderID from the previous step, we can retrieve th
             "productName": "Goose Orion",
             "productCount": 1,
             "totalCost": 80.99,
-            "oid": "92e959ef-9ef3-4868-aefa-1256bd5e229a"
+            "oid": "18ecde5d-8044-4e5f-ba3d-c0381adc0706"
         },
         {
             "productID": 1,
             "productName": "ZOOM TKL",
             "productCount": 5,
             "totalCost": 899.95,
-            "oid": "b18265a8-aee1-40bd-a125-c9b1c8d8b67a"
+            "oid": "2f204870-0c10-49c1-aeed-0d0349485b6f"
         },
         {
             "productID": 2,
             "productName": "AR87 TKL",
             "productCount": 1,
             "totalCost": 314.99,
-            "oid": "bc9d28ba-cb96-4af2-9b3d-2f984e479441"
+            "oid": "6fcc259f-33c9-47ba-bdae-93a3882add94"
         }
     ],
     "customer": {
-        "username": null,
+        "username": "johnjake14",
         "email": "john.albesa@email.com",
         "currentBalance": 10000.0,
-        "cid": 7
+        "cid": 28
     },
-    "oid": 27
+    "oid": 29
 }
 ```
