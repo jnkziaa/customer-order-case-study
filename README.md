@@ -1,7 +1,7 @@
 # customer-order-case-study
 READ ME
 
-Scuffed UML
+UML for the following Project
 ![image](https://user-images.githubusercontent.com/107880782/197141984-046080f2-991e-4aee-ba52-712b875c2a31.png)
 
 1. POST http://localhost:8080/api/addProduct
