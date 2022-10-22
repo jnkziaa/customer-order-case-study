@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 public interface ProductInfoRepository extends JpaRepository<ProductInfo, Long> {
 
+    //public ProductInfo getProductInfoByPID(Long productID);
     /*
     @Autowired
     private JdbcTemplate jdbcTemplate;

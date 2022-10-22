@@ -19,16 +19,20 @@ public class CustomerInfo {
 
     private String username;
     private String email;
+    /*
     private String phoneNumber;
     private String city;
-    private String state;
+    private String state;*/
     private double currentBalance;
 
 
-    public CustomerInfo(String username, String email) {
+    public CustomerInfo(String username, String email, double currentBalance) {
         this.username = username;
         this.email = email;
+        this.currentBalance = 10000.0;
     }
+
+
 }
 
 

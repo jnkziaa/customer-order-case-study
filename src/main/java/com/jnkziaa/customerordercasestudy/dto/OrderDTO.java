@@ -16,5 +16,5 @@ public class OrderDTO {
     private String orderDescription;
     private List<ShoppingCartInfo> cartItems;
     private String customerEmail;
-    private String customerName;
+    private String customerUsername;
 }

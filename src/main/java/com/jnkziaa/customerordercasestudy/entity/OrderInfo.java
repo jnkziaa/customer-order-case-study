@@ -19,13 +19,14 @@ public class OrderInfo {
 
     private String orderDescription;
 
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = ShoppingCartInfo.class)
+    @JoinColumn(name = "shoppingCart_ID", referencedColumnName = "oID")
+    private List<ShoppingCartInfo> cartItems;
+
     @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "customer_ID", referencedColumnName = "cID")
     private CustomerInfo customer;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = ShoppingCartInfo.class)
-    @JoinColumn(name = "shoppingCart_ID", referencedColumnName = "oID")
-    private List<ShoppingCartInfo> cartItems;
 
 
     public OrderInfo(String orderDescription, CustomerInfo customer, List<ShoppingCartInfo> cartItems) {

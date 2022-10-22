@@ -57,7 +57,7 @@ public class ShoppingCartRestController {
         ResponseOrderDTO responseOrderDTO = new ResponseOrderDTO();
         double amount = customerPurchaseService.getShoppingCartTotal(orderDTO.getCartItems());
 
-        CustomerInfo customerInfo = new CustomerInfo(orderDTO.getCustomerName(), orderDTO.getCustomerEmail());
+        CustomerInfo customerInfo = new CustomerInfo(orderDTO.getCustomerUsername(), orderDTO.getCustomerEmail(), 10000.0);
         Long customerIdInDataBase = customerService.isCustomerPresent(customerInfo);
 
         if(customerIdInDataBase != null){
