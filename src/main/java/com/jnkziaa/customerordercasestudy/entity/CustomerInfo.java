@@ -24,6 +24,11 @@ public class CustomerInfo {
     private String state;
     private double currentBalance;
 
+
+    public CustomerInfo(String username, String email) {
+        this.username = username;
+        this.email = email;
+    }
 }
 
 

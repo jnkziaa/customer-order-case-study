@@ -13,5 +13,5 @@ public class ResponseOrderDTO {
     private int invoiceNumber;
     private String date;
     private String orderDescription;
-    private int orderID;
+    private Long orderID;
 }

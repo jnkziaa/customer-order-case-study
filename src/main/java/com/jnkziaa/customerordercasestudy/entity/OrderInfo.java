@@ -28,6 +28,11 @@ public class OrderInfo {
     private List<ShoppingCartInfo> cartItems;
 
 
+    public OrderInfo(String orderDescription, CustomerInfo customer, List<ShoppingCartInfo> cartItems) {
+        this.orderDescription = orderDescription;
+        this.customer = customer;
+        this.cartItems = cartItems;
+    }
 }
 
 
