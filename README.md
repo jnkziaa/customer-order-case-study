@@ -52,3 +52,41 @@ Response :
     }
 ]
 ```
+
+3. POST http://localhost:9090/api/placeOrder
+Description: Placing an order should follow something like this, by using the product ID that we can retrieve from
+http://localhost:8080/api/getAllProducts, we can put these products into a list of products which would be stored in a shopping cart, we can also specify how many items we want to buy.
+This following JSON
+```
+{
+  "orderDescription": "Buying keyboards just cuz",
+  "cartItems":[
+    {
+      "productID" : 1,
+      "productCount": 5
+    },
+    {
+      "productID": 2,
+      "productCount": 1
+    },
+    {
+      "productID": 4,
+      "productCount": 1
+    }
+  ],
+  "customerEmail": "john.albesa@email.com",
+  "customerUsername": "johnjake14"
+}
+```
+
+Would result in 
+
+```
+{
+    "amount": 1295.93,
+    "invoiceNumber": 22654,
+    "date": "22",
+    "orderDescription": "Buying keyboards just cuz",
+    "orderID": 29
+}
+```
