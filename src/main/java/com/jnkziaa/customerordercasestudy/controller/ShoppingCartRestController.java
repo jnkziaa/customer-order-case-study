@@ -6,6 +6,7 @@ import com.jnkziaa.customerordercasestudy.entity.CartItemsInfo;
 import com.jnkziaa.customerordercasestudy.entity.CustomerInfo;
 import com.jnkziaa.customerordercasestudy.entity.OrderInfo;
 import com.jnkziaa.customerordercasestudy.entity.ProductInfo;
+import com.jnkziaa.customerordercasestudy.repository.ProductInfoRepository;
 import com.jnkziaa.customerordercasestudy.service.CustomerPurchaseService;
 import com.jnkziaa.customerordercasestudy.service.CustomerService;
 import com.jnkziaa.customerordercasestudy.service.ProductService;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -30,6 +32,8 @@ public class ShoppingCartRestController {
     private CustomerService customerService;
     @Autowired
     private ShowCartItemsService showCartItemsService;
+    @Autowired
+    private ProductInfoRepository productInfoRepository;
 
     public ShoppingCartRestController(CustomerPurchaseService customerPurchaseService,
                                       ProductService productService,
@@ -60,7 +64,46 @@ public class ShoppingCartRestController {
 
     @GetMapping("/getAllItemsInCart")
     public ResponseEntity<List<CartItemsInfo>> getAllItemsInCart(){
+
         List<CartItemsInfo> cartItemsInfoList = showCartItemsService.cartItemsInfoList();
+
+        double totalCartAmount = 0.0;
+        double singleCartAmount = 0.0;
+        int availableQuantity = 0;
+
+        for(CartItemsInfo items : cartItemsInfoList) {
+            String productName = items.getProductName();
+
+
+            Optional<ProductInfo> productInfoIDs = Optional.ofNullable(productInfoRepository.findByProductName(productName));
+
+            if(productInfoIDs.isPresent()){
+
+                ProductInfo productInfo2 = productInfoIDs.get();
+                //System.out.println("PRODUCT1 ARE :" + productInfo1);
+
+                System.out.println("AVAILABLE QUANTITY: " + productInfo2.getProductAvailableQuantity() + " CART QUANTITY : " + items.getProductQuantityAmount());
+                if(productInfo2.getProductAvailableQuantity() < items.getProductQuantityAmount()){
+
+                    singleCartAmount = productInfo2.getProductPrice() * productInfo2.getProductAvailableQuantity();
+
+                    items.setProductQuantityAmount(productInfo2.getProductAvailableQuantity());
+                }else{
+
+                    singleCartAmount = items.getProductQuantityAmount() * productInfo2.getProductPrice();
+
+                    availableQuantity = productInfo2.getProductAvailableQuantity() - items.getProductQuantityAmount();
+                }
+
+                System.out.println("CURRENT TOTAL ARE " + singleCartAmount + " " + totalCartAmount);
+                totalCartAmount = totalCartAmount + singleCartAmount;
+                productInfo2.setProductAvailableQuantity(availableQuantity);
+                availableQuantity = 0;
+                items.setProductID(productInfo2.getPID());
+                items.setProductName(productInfo2.getProductName());
+                items.setTotalCost(singleCartAmount);
+            }
+        }
 
         return ResponseEntity.ok(cartItemsInfoList);
     }

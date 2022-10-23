@@ -64,6 +64,7 @@ public class CustomerPurchaseService {
                 totalCartAmount = totalCartAmount + singleCartAmount;
                 productInfo1.setProductAvailableQuantity(availableQuantity);
                 availableQuantity = 0;
+                cart.setProductID(productInfo1.getPID());
                 cart.setProductName(productInfo1.getProductName());
                 cart.setTotalCost(singleCartAmount);
                 productInfoRepository.save(productInfo1);
