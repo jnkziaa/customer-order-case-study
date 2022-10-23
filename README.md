@@ -122,6 +122,8 @@ Description: By adding to the cart using the previous step, by either using prod
 ```
 
 5. POST http://localhost:9090/api/placeOrder
+
+
 Description: Placing an order should follow something like this format, by using the productID or productName from the previous step that we can retrieve from
 we can put these products into a list of products which would be stored in a shopping cart, we can also specify how many items we want to buy.
 This following JSON
