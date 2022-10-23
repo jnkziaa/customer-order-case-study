@@ -1,4 +1,4 @@
-package com.jnkziaa.customerordercasestudy.entity;
+/*package com.jnkziaa.customerordercasestudy.entity;
 
 
 import lombok.AllArgsConstructor;
@@ -23,7 +23,9 @@ public class ShoppingCartInfo {
 
     private Long productID;
     private String productName;
-    private int productCount;
+    private int productQuantityAmount;
     private double totalCost;
 
 }
+*
+ */

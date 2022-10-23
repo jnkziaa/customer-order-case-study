@@ -26,10 +26,10 @@ public class CustomerInfo {
     private double currentBalance;
 
 
-    public CustomerInfo(String username, String email, double currentBalance) {
+    public CustomerInfo(String username, String email) {
         this.username = username;
         this.email = email;
-        this.currentBalance = 10000.0;
+        this.currentBalance = 2500.0;
     }
 
 

@@ -1,31 +1,27 @@
 package com.jnkziaa.customerordercasestudy.entity;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "PAYMENT_INFO")
-public class PaymentInfo {
+@Table(name = "CART_ITEMS_INFO")
+public class CartItemsInfo {
 
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name="uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    private String paymentId;
-    private String accountNo;
-    private double amount;
-    private String cardType;
-    private Long customerId;
+    private String cartItemID;
 
-
+    private Long productID;
+    private String productName;
+    private int productQuantityAmount;
+    private double totalCost;
 }

@@ -19,20 +19,21 @@ public class OrderInfo {
 
     private String orderDescription;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = ShoppingCartInfo.class)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = CartItemsInfo.class)
     @JoinColumn(name = "shoppingCart_ID", referencedColumnName = "oID")
-    private List<ShoppingCartInfo> cartItems;
+    private List<CartItemsInfo> cartItems;
 
+    private double totalCostOfCart;
     @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "customer_ID", referencedColumnName = "cID")
     private CustomerInfo customer;
 
 
-
-    public OrderInfo(String orderDescription, CustomerInfo customer, List<ShoppingCartInfo> cartItems) {
+    public OrderInfo(String orderDescription,CustomerInfo customer , double totalCostOfCart, List<CartItemsInfo> cartItems) {
         this.orderDescription = orderDescription;
-        this.customer = customer;
         this.cartItems = cartItems;
+        this.totalCostOfCart = totalCostOfCart;
+        this.customer = customer;
     }
 }
 

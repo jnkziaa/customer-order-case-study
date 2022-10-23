@@ -1,7 +1,7 @@
 package com.jnkziaa.customerordercasestudy;
 
 import com.jnkziaa.customerordercasestudy.dto.CustomerPurchaseAcknowledgement;
-import com.jnkziaa.customerordercasestudy.dto.CustomerPurchaseRequest;
+//import com.jnkziaa.customerordercasestudy.dto.CustomerPurchaseRequest;
 import com.jnkziaa.customerordercasestudy.dto.ProductAdditionRequest;
 import com.jnkziaa.customerordercasestudy.service.CustomerPurchaseService;
 import com.jnkziaa.customerordercasestudy.service.ProductService;
