@@ -98,25 +98,39 @@ Description: By adding to the cart using the previous step, by either using prod
 ```
 [
     {
-        "cartItemID": "10134ec9-2714-49e4-b078-37ec1046c7ab",
+        "cartItemID": "3ee53168-7009-4d14-8e20-95cafeabd673",
+        "productID": 10,
+        "productName": "Coconut",
+        "productQuantityAmount": 5,
+        "totalCost": 42.45
+    },
+    {
+        "cartItemID": "4c2c9690-92cb-464a-8ac3-e7af0821cec8",
+        "productID": 22,
+        "productName": "Banana",
+        "productQuantityAmount": 5,
+        "totalCost": 42.45
+    },
+    {
+        "cartItemID": "5528b80e-397a-4866-bcb2-7d8ab00ce330",
+        "productID": 22,
+        "productName": "Banana",
+        "productQuantityAmount": 5,
+        "totalCost": 42.45
+    },
+    {
+        "cartItemID": "f761834b-6254-4f9a-b54a-b1c5ee924cdf",
+        "productID": 2,
+        "productName": "Apples",
+        "productQuantityAmount": 20,
+        "totalCost": 79.80000000000001
+    },
+    {
+        "cartItemID": "f7cef18f-a3f2-4d94-9d6a-fa4ac23d8fab",
         "productID": 3,
-        "productName": null,
-        "productQuantityAmount": 25,
-        "totalCost": 0.0
-    },
-    {
-        "cartItemID": "2a269d4d-2c02-443f-92b0-32e794c71069",
-        "productID": null,
         "productName": "Oranges",
-        "productQuantityAmount": 25,
-        "totalCost": 87.25
-    },
-    {
-        "cartItemID": "8ac95b64-4c24-442d-8125-a5861401b2a5",
-        "productID": 4,
-        "productName": null,
-        "productQuantityAmount": 25,
-        "totalCost": 0.0
+        "productQuantityAmount": 15,
+        "totalCost": 52.35
     }
 ]
 ```
@@ -139,13 +153,12 @@ Would result in
 
 ```
 {
-    "invoiceNumber": "5fded267-9bcb-45bf-a9b6-8284db0700e6",
-    "amount": 325.33,
-    "date": "Sat Oct 22 18:07:33 PDT 2022",
+    "invoiceNumber": "e522feb0-d728-48cf-9d14-33e1e351d882",
+    "amount": 259.50000000000006,
+    "date": "Sat Oct 22 19:14:16 PDT 2022",
     "orderDescription": "Groceries",
-    "oid": 38
+    "oid": 42
 }
-
 ```
 which contains the total amount of in dollars of the products we had in the shopping cart, contains a random invoiceNumber, the purchase date, and the order optional order description we wanted.
 
@@ -158,55 +171,48 @@ Description : By grabbing the OrderID from the previous step, we can retrieve th
     "orderDescription": "Groceries",
     "cartItems": [
         {
-            "cartItemID": "10134ec9-2714-49e4-b078-37ec1046c7ab",
-            "productID": 3,
-            "productName": null,
-            "productQuantityAmount": 25,
-            "totalCost": 0.0
-        },
-        {
-            "cartItemID": "2a269d4d-2c02-443f-92b0-32e794c71069",
-            "productID": null,
-            "productName": "Oranges",
-            "productQuantityAmount": 25,
-            "totalCost": 87.25
-        },
-        {
-            "cartItemID": "7194c253-37ca-4de8-be89-52141d0ed082",
-            "productID": null,
+            "cartItemID": "3ee53168-7009-4d14-8e20-95cafeabd673",
+            "productID": 10,
             "productName": "Coconut",
             "productQuantityAmount": 5,
             "totalCost": 42.45
         },
         {
-            "cartItemID": "88d6b366-b703-49da-a017-8a20af963183",
-            "productID": null,
+            "cartItemID": "4c2c9690-92cb-464a-8ac3-e7af0821cec8",
+            "productID": 22,
+            "productName": "Banana",
+            "productQuantityAmount": 5,
+            "totalCost": 42.45
+        },
+        {
+            "cartItemID": "5528b80e-397a-4866-bcb2-7d8ab00ce330",
+            "productID": 22,
+            "productName": "Banana",
+            "productQuantityAmount": 5,
+            "totalCost": 42.45
+        },
+        {
+            "cartItemID": "f761834b-6254-4f9a-b54a-b1c5ee924cdf",
+            "productID": 2,
             "productName": "Apples",
-            "productQuantityAmount": 25,
-            "totalCost": 99.75
+            "productQuantityAmount": 20,
+            "totalCost": 79.80000000000001
         },
         {
-            "cartItemID": "8ac95b64-4c24-442d-8125-a5861401b2a5",
-            "productID": 4,
-            "productName": null,
-            "productQuantityAmount": 25,
-            "totalCost": 0.0
-        },
-        {
-            "cartItemID": "d2bb41e5-3a80-46e0-b909-74a2b668a0b5",
-            "productID": null,
-            "productName": "Strawberry",
-            "productQuantityAmount": 12,
-            "totalCost": 95.88
+            "cartItemID": "f7cef18f-a3f2-4d94-9d6a-fa4ac23d8fab",
+            "productID": 3,
+            "productName": "Oranges",
+            "productQuantityAmount": 15,
+            "totalCost": 52.35
         }
     ],
-    "totalCostOfCart": 325.33,
+    "totalCostOfCart": 259.50000000000006,
     "customer": {
-        "username": "johnjake15",
-        "email": "john.albesa1@email.com",
-        "currentBalance": 2174.67,
-        "cid": 37
+        "username": "johnjake17",
+        "email": "john.albesa12@email.com",
+        "currentBalance": 2240.5,
+        "cid": 41
     },
-    "oid": 38
+    "oid": 42
 }
 ```
