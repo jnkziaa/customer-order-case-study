@@ -24,113 +24,132 @@ Response :
 ```
 [
     {
-        "productName": "Grapes",
-        "productAvailableQuantity": 375,
-        "productPrice": 5.99,
+        "productName": "Apples",
+        "productAvailableQuantity": 40,
+        "productPrice": 4.49,
         "pid": 1
     },
     {
-        "productName": "Apples",
-        "productAvailableQuantity": 300,
-        "productPrice": 3.99,
+        "productName": "Banana",
+        "productAvailableQuantity": 285,
+        "productPrice": 5.49,
         "pid": 2
     },
     {
-        "productName": "Oranges",
-        "productAvailableQuantity": 275,
-        "productPrice": 3.49,
+        "productName": "Carrots",
+        "productAvailableQuantity": 500,
+        "productPrice": 1.49,
         "pid": 3
     },
     {
-        "productName": "Pears",
-        "productAvailableQuantity": 200,
-        "productPrice": 1.49,
+        "productName": "Pineapple",
+        "productAvailableQuantity": 750,
+        "productPrice": 8.99,
         "pid": 4
     },
     {
-        "productName": "Coconut",
-        "productAvailableQuantity": 500,
-        "productPrice": 8.49,
-        "pid": 10
-    },
-    {
-        "productName": "Banana",
-        "productAvailableQuantity": 150,
-        "productPrice": 8.49,
-        "pid": 22
+        "productName": "Jello",
+        "productAvailableQuantity": 654,
+        "productPrice": 4.99,
+        "pid": 5
     },
     {
         "productName": "Strawberry",
         "productAvailableQuantity": 75,
         "productPrice": 7.99,
-        "pid": 34
+        "pid": 6
     }
 ]
 ```
 
-3. POST http://localhost:9090/api/addToCart
+3. POST http://localhost:9090/api/addValidUser
 
-Description: We have added the ability of adding single items into the shopping cart by following this format:
+Description: Added the ability to add customer informations to the database which is going to be used to isolate specific shopping cart for specific people.
+We can add Customers Informations by following this format:
+
+```
+{
+    "customerInfo": {
+    "username": "johnjake14",
+    "email": "john.albesa@email.com",
+    "phoneNumber": "408-123-4567",
+    "city": "Santa Clara",
+    "state": "California",
+    "currentBalance": 2500.0
+    }
+}
+```
+
+4. GET http://localhost:9090/api/ShowAllValidUsers
+
+Description: By simply adding users, we should always have always have a way to retrieve them as a whole therefor we also added the abilityy to show all the valid users, and their current balances.
+
+```
+[
+    {
+        "username": "ninjin14",
+        "email": "ninjin14@email.com",
+        "phoneNumber": "408-566-3566",
+        "city": "Santa Monica",
+        "state": "California",
+        "currentBalance": 1718.1100000000001,
+        "cid": 1
+    },
+    {
+        "username": "johnjake14",
+        "email": "john.albesa@email.com",
+        "phoneNumber": "408-123-4567",
+        "city": "Santa Clara",
+        "state": "California",
+        "currentBalance": 1631.6999999999998,
+        "cid": 2
+    }
+]
+```
+
+5. POST http://localhost:9090/api/addToCart
+
+Description: We have added the ability of adding single items into the shopping cart by following this format, by using cid as the main isolator, for example Customer 1 refers to the first person in the database, that means every single item being added to the shopping cart will have a tag "cid":1 making them easier to retreieve for checkout.
 
 ```
 {
     "cartItemsInfo": {
-        "productName": "Banana",
-        "productQuantityAmount": 25
+        "productName": "Apples",
+        "productQuantityAmount": 65, 
+        "cid": 1
     }
 }
-
-or
-
-{
-    "cartItemsInfo": {
-        "productID": "5",
-        "productQuantityAmount": 25
-    }
-}
-
 ```
 
-4. GET http://localhost:9090/api/getAllItemsInCart
+6. GET http://localhost:9090/api/getAllItemsInCart/1
 
 Description: By adding to the cart using the previous step, by either using productName, or by using productID, these products are being accumulated in a single shopping cart and by GETMapping it, we will get the following:
 
 ```
 [
     {
-        "cartItemID": "3ee53168-7009-4d14-8e20-95cafeabd673",
-        "productID": 10,
-        "productName": "Coconut",
-        "productQuantityAmount": 5,
-        "totalCost": 42.45
-    },
-    {
-        "cartItemID": "4c2c9690-92cb-464a-8ac3-e7af0821cec8",
-        "productID": 22,
-        "productName": "Banana",
-        "productQuantityAmount": 5,
-        "totalCost": 42.45
-    },
-    {
-        "cartItemID": "5528b80e-397a-4866-bcb2-7d8ab00ce330",
-        "productID": 22,
-        "productName": "Banana",
-        "productQuantityAmount": 5,
-        "totalCost": 42.45
-    },
-    {
-        "cartItemID": "f761834b-6254-4f9a-b54a-b1c5ee924cdf",
-        "productID": 2,
+        "cartItemID": "23571634-eb14-4e80-b040-1b517d9d6222",
+        "productID": 1,
         "productName": "Apples",
-        "productQuantityAmount": 20,
-        "totalCost": 79.80000000000001
+        "productQuantityAmount": 65,
+        "totalCost": 291.85,
+        "cid": 1
     },
     {
-        "cartItemID": "f7cef18f-a3f2-4d94-9d6a-fa4ac23d8fab",
-        "productID": 3,
-        "productName": "Oranges",
-        "productQuantityAmount": 15,
-        "totalCost": 52.35
+        "cartItemID": "c0017156-d0de-45f1-8f86-139faa8867b4",
+        "productID": 2,
+        "productName": "Banana",
+        "productQuantityAmount": 55,
+        "totalCost": 301.95,
+        "cid": 1
+    },
+    {
+        "cartItemID": "c3d1b0f9-73c6-481d-8907-1a91edde2a5e",
+        "productID": 1,
+        "productName": "Apples",
+        "productQuantityAmount": 43,
+        "totalCost": 193.07000000000002,
+        "cid": 1
     }
 ]
 ```
@@ -144,8 +163,7 @@ This following JSON
 ```
 {
   "orderDescription": "Groceries",
-  "customerEmail": "john.albesa@email.com",
-  "customerUsername": "johnjake14"
+  "cid": 1
 }
 ```
 
@@ -153,16 +171,16 @@ Would result in
 
 ```
 {
-    "invoiceNumber": "e522feb0-d728-48cf-9d14-33e1e351d882",
-    "amount": 259.50000000000006,
-    "date": "Sat Oct 22 19:14:16 PDT 2022",
+    "invoiceNumber": "be380393-36fd-49b6-a116-9dc2da786d35",
+    "amount": 786.87,
+    "date": "Sat Oct 22 22:52:33 PDT 2022",
     "orderDescription": "Groceries",
-    "oid": 42
+    "oid": 3
 }
 ```
 which contains the total amount of in dollars of the products we had in the shopping cart, contains a random invoiceNumber, the purchase date, and the order optional order description we wanted.
 
-6. GET http://localhost:9090/api/getOrder/35
+6. GET http://localhost:9090/api/getOrder/3
 
 Description : By grabbing the OrderID from the previous step, we can retrieve the whole order information which contains the productName, the amount of quantities we bought, contains the the total cost, the optional orderDescription, customer's username, customer's email and lastly (supposedly) the customer's current remaining balance.
 
@@ -171,48 +189,40 @@ Description : By grabbing the OrderID from the previous step, we can retrieve th
     "orderDescription": "Groceries",
     "cartItems": [
         {
-            "cartItemID": "3ee53168-7009-4d14-8e20-95cafeabd673",
-            "productID": 10,
-            "productName": "Coconut",
-            "productQuantityAmount": 5,
-            "totalCost": 42.45
-        },
-        {
-            "cartItemID": "4c2c9690-92cb-464a-8ac3-e7af0821cec8",
-            "productID": 22,
-            "productName": "Banana",
-            "productQuantityAmount": 5,
-            "totalCost": 42.45
-        },
-        {
-            "cartItemID": "5528b80e-397a-4866-bcb2-7d8ab00ce330",
-            "productID": 22,
-            "productName": "Banana",
-            "productQuantityAmount": 5,
-            "totalCost": 42.45
-        },
-        {
-            "cartItemID": "f761834b-6254-4f9a-b54a-b1c5ee924cdf",
-            "productID": 2,
+            "cartItemID": "23571634-eb14-4e80-b040-1b517d9d6222",
+            "productID": 1,
             "productName": "Apples",
-            "productQuantityAmount": 20,
-            "totalCost": 79.80000000000001
+            "productQuantityAmount": 65,
+            "totalCost": 291.85,
+            "cid": 1
         },
         {
-            "cartItemID": "f7cef18f-a3f2-4d94-9d6a-fa4ac23d8fab",
-            "productID": 3,
-            "productName": "Oranges",
-            "productQuantityAmount": 15,
-            "totalCost": 52.35
+            "cartItemID": "c0017156-d0de-45f1-8f86-139faa8867b4",
+            "productID": 2,
+            "productName": "Banana",
+            "productQuantityAmount": 55,
+            "totalCost": 301.95,
+            "cid": 1
+        },
+        {
+            "cartItemID": "c3d1b0f9-73c6-481d-8907-1a91edde2a5e",
+            "productID": 1,
+            "productName": "Apples",
+            "productQuantityAmount": 43,
+            "totalCost": 193.07000000000002,
+            "cid": 1
         }
     ],
-    "totalCostOfCart": 259.50000000000006,
+    "totalCostOfCart": 786.87,
     "customer": {
-        "username": "johnjake17",
-        "email": "john.albesa12@email.com",
-        "currentBalance": 2240.5,
-        "cid": 41
+        "username": "ninjin14",
+        "email": "ninjin14@email.com",
+        "phoneNumber": "408-566-3566",
+        "city": "Santa Monica",
+        "state": "California",
+        "currentBalance": 1718.1100000000001,
+        "cid": 1
     },
-    "oid": 42
+    "oid": 3
 }
 ```
