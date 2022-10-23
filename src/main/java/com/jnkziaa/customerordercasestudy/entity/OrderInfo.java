@@ -20,7 +20,7 @@ public class OrderInfo {
     private String orderDescription;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = CartItemsInfo.class)
-    @JoinColumn(name = "shoppingCart_ID", referencedColumnName = "oID")
+    @JoinColumn(name = "shoppingCardID", referencedColumnName = "oID")
     private List<CartItemsInfo> cartItems;
 
     private double totalCostOfCart;

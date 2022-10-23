@@ -7,10 +7,8 @@ import com.jnkziaa.customerordercasestudy.entity.CustomerInfo;
 import com.jnkziaa.customerordercasestudy.entity.OrderInfo;
 import com.jnkziaa.customerordercasestudy.entity.ProductInfo;
 import com.jnkziaa.customerordercasestudy.repository.ProductInfoRepository;
-import com.jnkziaa.customerordercasestudy.service.CustomerPurchaseService;
-import com.jnkziaa.customerordercasestudy.service.CustomerService;
-import com.jnkziaa.customerordercasestudy.service.ProductService;
-import com.jnkziaa.customerordercasestudy.service.ShowCartItemsService;
+import com.jnkziaa.customerordercasestudy.service.*;
+import org.apache.tomcat.jni.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +30,8 @@ public class ShoppingCartRestController {
     private CustomerService customerService;
     @Autowired
     private ShowCartItemsService showCartItemsService;
+    @Autowired
+    private CustomerRegistrationService customerRegistrationService;
     @Autowired
     private ProductInfoRepository productInfoRepository;
 
@@ -55,6 +55,18 @@ public class ShoppingCartRestController {
         List<ProductInfo> productInfoList = productService.getAllProducts();
 
         return ResponseEntity.ok(productInfoList);
+    }
+
+    @PostMapping("/addValidUser")
+    public void addValidUser(@RequestBody UserAdditionRequest request){
+        customerRegistrationService.saveCustomerInfo(request);
+    }
+
+    @GetMapping("/ShowAllValidUsers")
+    public ResponseEntity<List<CustomerInfo>> getAllValidUsers(){
+        List<CustomerInfo> customerInfoList = customerRegistrationService.customerInfoList();
+
+        return ResponseEntity.ok(customerInfoList);
     }
 
     @PostMapping("/addToCart")

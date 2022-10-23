@@ -19,10 +19,9 @@ public class CustomerInfo {
 
     private String username;
     private String email;
-    /*
     private String phoneNumber;
     private String city;
-    private String state;*/
+    private String state;
     private double currentBalance;
 
 

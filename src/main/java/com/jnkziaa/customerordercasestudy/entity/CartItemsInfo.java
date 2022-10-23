@@ -22,6 +22,8 @@ public class CartItemsInfo {
 
     private Long productID;
     private String productName;
+    private Long cID;
     private int productQuantityAmount;
     private double totalCost;
+
 }
