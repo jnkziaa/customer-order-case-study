@@ -15,6 +15,7 @@ Description : using talend API tester or Postman, we can add products to the dat
     "productPrice": 7.99
     }
 }
+```
 
 2. GET  http://localhost:8080/api/getAllProducts
 
