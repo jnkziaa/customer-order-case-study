@@ -180,7 +180,7 @@ Would result in
 ```
 which contains the total amount of in dollars of the products we had in the shopping cart, contains a random invoiceNumber, the purchase date, and the order optional order description we wanted.
 
-6. GET http://localhost:9090/api/getOrder/35
+6. GET http://localhost:9090/api/getOrder/3
 
 Description : By grabbing the OrderID from the previous step, we can retrieve the whole order information which contains the productName, the amount of quantities we bought, contains the the total cost, the optional orderDescription, customer's username, customer's email and lastly (supposedly) the customer's current remaining balance.
 
