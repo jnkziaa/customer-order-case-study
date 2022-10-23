@@ -186,43 +186,37 @@ Description : By grabbing the OrderID from the previous step, we can retrieve th
 
 ```
 {
+    "invoiceNumber": "dfe31bc7-f282-4b31-92ba-2422af0b6f29",
+    "totalCostOfCart": 355.28000000000003,
+    "orderDate": "Sun Oct 23 14:08:04 PDT 2022",
     "orderDescription": "Groceries",
     "cartItems": [
         {
-            "cartItemID": "23571634-eb14-4e80-b040-1b517d9d6222",
+            "cartItemID": "655d4780-91dc-4eae-b5b0-160d7f5a4592",
             "productID": 1,
             "productName": "Apples",
-            "productQuantityAmount": 65,
-            "totalCost": 291.85,
+            "productQuantityAmount": 40,
+            "totalCost": 179.60000000000002,
             "cid": 1
         },
         {
-            "cartItemID": "c0017156-d0de-45f1-8f86-139faa8867b4",
+            "cartItemID": "6ccc72a8-4b25-44d0-9c04-aa7a2d0f43fd",
             "productID": 2,
             "productName": "Banana",
-            "productQuantityAmount": 55,
-            "totalCost": 301.95,
-            "cid": 1
-        },
-        {
-            "cartItemID": "c3d1b0f9-73c6-481d-8907-1a91edde2a5e",
-            "productID": 1,
-            "productName": "Apples",
-            "productQuantityAmount": 43,
-            "totalCost": 193.07000000000002,
+            "productQuantityAmount": 32,
+            "totalCost": 175.68,
             "cid": 1
         }
     ],
-    "totalCostOfCart": 786.87,
     "customer": {
         "username": "ninjin14",
         "email": "ninjin14@email.com",
         "phoneNumber": "408-566-3566",
         "city": "Santa Monica",
         "state": "California",
-        "currentBalance": 1718.1100000000001,
+        "currentBalance": 1362.8300000000002,
         "cid": 1
     },
-    "oid": 3
+    "oid": 1
 }
 ```
