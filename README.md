@@ -2,7 +2,8 @@
 READ ME
 
 UML for the following Project
-![image](https://user-images.githubusercontent.com/107880782/197141984-046080f2-991e-4aee-ba52-712b875c2a31.png)
+![image](https://user-images.githubusercontent.com/107880782/197421600-44fba92b-5aae-4f33-8d83-28b7f373b302.png)
+
 
 1. POST http://localhost:8080/api/addProduct
 
