@@ -18,6 +18,7 @@ public class OrderDTO {
     private String orderDescription;
     private List<CartItemsInfo> cartItems;
     private double totalCostOfCart;
+    private Long cID;
     private String customerEmail;
     private String customerUsername;
 

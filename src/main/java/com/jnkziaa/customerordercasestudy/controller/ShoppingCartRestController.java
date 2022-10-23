@@ -13,10 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api")
@@ -74,10 +71,16 @@ public class ShoppingCartRestController {
         showCartItemsService.saveCartItemsInfo(request);
     }
 
-    @GetMapping("/getAllItemsInCart")
-    public ResponseEntity<List<CartItemsInfo>> getAllItemsInCart(){
+    @GetMapping("/getAllItemsInCart/{cID}")
+    public ResponseEntity<List<CartItemsInfo>> getAllItemsInCart(@PathVariable Long cID){
 
-        List<CartItemsInfo> cartItemsInfoList = showCartItemsService.cartItemsInfoList();
+        List<CartItemsInfo> cartItemsInfoList = new ArrayList<>();
+
+        for(CartItemsInfo items : showCartItemsService.cartItemsInfoList()){
+            if(items.getCID() == cID){
+                cartItemsInfoList.add(items);
+            }
+        }
 
         double totalCartAmount = 0.0;
         double singleCartAmount = 0.0;
@@ -132,12 +135,30 @@ public class ShoppingCartRestController {
 
 
         ResponseOrderDTO responseOrderDTO = new ResponseOrderDTO();
-        orderDTO.setCartItems(showCartItemsService.cartItemsInfoList());
+        List<CartItemsInfo> cartItemsInfoList = new ArrayList<>();
+
+        for(CartItemsInfo items : showCartItemsService.cartItemsInfoList()){
+            if(Objects.equals(items.getCID(), orderDTO.getCID())){
+                System.out.println(items);
+                cartItemsInfoList.add(items);
+            }
+        }
+
+
+        orderDTO.setCartItems(cartItemsInfoList);
+
         double amount = customerPurchaseService.getShoppingCartTotal(orderDTO.getCartItems());
+
+        for(CustomerInfo customers : customerRegistrationService.customerInfoList()){
+            if(Objects.equals(orderDTO.getCID(), customers.getCID())){
+                orderDTO.setCustomerEmail(customers.getEmail());
+                orderDTO.setCustomerUsername(customers.getUsername());
+                customers.setCurrentBalance(customers.getCurrentBalance() - amount);
+            }
+        }
 
         CustomerInfo customerInfo = new CustomerInfo(orderDTO.getCustomerUsername(), orderDTO.getCustomerEmail());
         System.out.println("THIS CUSTOMER HAS THIS MUCH MONEY " + customerInfo.getCurrentBalance());
-        customerInfo.setCurrentBalance(customerInfo.getCurrentBalance() - amount);
         Long customerIdInDataBase = customerService.isCustomerPresent(customerInfo);
 
         if(customerIdInDataBase != null){
@@ -157,9 +178,11 @@ public class ShoppingCartRestController {
         responseOrderDTO.setOID(orderInfo.getOID());
         responseOrderDTO.setOrderDescription(orderDTO.getOrderDescription());
 
-        showCartItemsService.cartItemsInfoList().clear();
         return ResponseEntity.ok(responseOrderDTO);
 
+
+
+        //return ResponseEntity.ok(new ResponseOrderDTO());
     }
 
     @GetMapping("/getOrder/{orderId}")
