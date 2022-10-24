@@ -2,10 +2,7 @@ package com.jnkziaa.customerordercasestudy.controller;
 
 
 import com.jnkziaa.customerordercasestudy.dto.*;
-import com.jnkziaa.customerordercasestudy.entity.CartItemsInfo;
-import com.jnkziaa.customerordercasestudy.entity.CustomerInfo;
-import com.jnkziaa.customerordercasestudy.entity.OrderInfo;
-import com.jnkziaa.customerordercasestudy.entity.ProductInfo;
+import com.jnkziaa.customerordercasestudy.entity.*;
 import com.jnkziaa.customerordercasestudy.repository.ProductInfoRepository;
 import com.jnkziaa.customerordercasestudy.service.*;
 import org.apache.tomcat.jni.User;
@@ -31,15 +28,23 @@ public class ShoppingCartRestController {
     private CustomerRegistrationService customerRegistrationService;
     @Autowired
     private ProductInfoRepository productInfoRepository;
+    @Autowired
+    private ArchivedOrderService archivedOrderService;
 
     public ShoppingCartRestController(CustomerPurchaseService customerPurchaseService,
                                       ProductService productService,
                                       CustomerService customerService,
-                                      ShowCartItemsService showCartItemsService) {
+                                      ShowCartItemsService showCartItemsService,
+                                      CustomerRegistrationService customerRegistrationService,
+                                      ProductInfoRepository productInfoRepository,
+                                      ArchivedOrderService archivedOrderService) {
         this.customerPurchaseService = customerPurchaseService;
         this.productService = productService;
         this.customerService = customerService;
         this.showCartItemsService = showCartItemsService;
+        this.customerRegistrationService = customerRegistrationService;
+        this.productInfoRepository = productInfoRepository;
+        this.archivedOrderService = archivedOrderService;
     }
 
     @PostMapping("/addProduct")
@@ -135,12 +140,17 @@ public class ShoppingCartRestController {
 
 
         ResponseOrderDTO responseOrderDTO = new ResponseOrderDTO();
-        List<CartItemsInfo> cartItemsInfoList = new ArrayList<>();
+        List<CompleteOrderArchivedInfo> cartItemsInfoList = new ArrayList<>();
 
         for(CartItemsInfo items : showCartItemsService.cartItemsInfoList()){
             if(Objects.equals(items.getCID(), orderDTO.getCID())){
-                System.out.println(items);
-                cartItemsInfoList.add(items);
+                CompleteOrderArchivedInfo temp = new CompleteOrderArchivedInfo(items.getProductID(),
+                        items.getProductName(),
+                        items.getCID(),
+                        items.getProductQuantityAmount(),
+                        items.getTotalCost());
+                cartItemsInfoList.add(temp);
+                archivedOrderService.saveArchivedItemsInfo(temp);
             }
         }
 
@@ -157,6 +167,7 @@ public class ShoppingCartRestController {
             }
         }
 
+
         CustomerInfo customerInfo = new CustomerInfo(orderDTO.getCustomerUsername(), orderDTO.getCustomerEmail());
         System.out.println("THIS CUSTOMER HAS THIS MUCH MONEY " + customerInfo.getCurrentBalance());
         Long customerIdInDataBase = customerService.isCustomerPresent(customerInfo);
@@ -168,10 +179,13 @@ public class ShoppingCartRestController {
             customerInfo = customerService.saveCustomer(customerInfo);
         }
 
+
         String invoiceNumber = String.valueOf(UUID.randomUUID());
         String orderDate = String.valueOf(new Date());
         System.out.println("TOTAL AMOUNT IS :" + amount);
+
         OrderInfo orderInfo = new OrderInfo(invoiceNumber, amount, orderDate, orderDTO.getOrderDescription(), orderDTO.getCartItems(), customerInfo);
+
         orderInfo = customerPurchaseService.saveOrder(orderInfo);
 
         responseOrderDTO.setAmount(amount);
@@ -180,6 +194,7 @@ public class ShoppingCartRestController {
         responseOrderDTO.setOID(orderInfo.getOID());
         responseOrderDTO.setOrderDescription(orderDTO.getOrderDescription());
 
+        //showCartItemsService.deleteByID(orderDTO.getCID());
         return ResponseEntity.ok(responseOrderDTO);
 
 

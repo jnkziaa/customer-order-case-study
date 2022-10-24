@@ -4,6 +4,7 @@ import com.jnkziaa.customerordercasestudy.dto.AddToCartRequest;
 import com.jnkziaa.customerordercasestudy.entity.CartItemsInfo;
 import com.jnkziaa.customerordercasestudy.repository.CartItemsInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,4 +31,10 @@ public class ShowCartItemsService {
         CartItemsInfo cartItemsInfo = request.getCartItemsInfo();
         cartItemsInfoRepository.save(cartItemsInfo);
     }
+
+
+    /*
+    public void deleteByID(Long cid){
+        cartItemsInfoRepository.deleteByCID(cid);
+    }*/
 }

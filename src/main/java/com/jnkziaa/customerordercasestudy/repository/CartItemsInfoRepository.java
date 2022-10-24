@@ -4,5 +4,5 @@ import com.jnkziaa.customerordercasestudy.entity.CartItemsInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CartItemsInfoRepository extends JpaRepository<CartItemsInfo, Long> {
-
+        //public CartItemsInfo deleteByCID(Long cid);
 }

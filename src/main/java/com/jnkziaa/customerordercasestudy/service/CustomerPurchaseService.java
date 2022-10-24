@@ -2,6 +2,7 @@ package com.jnkziaa.customerordercasestudy.service;
 
 
 import com.jnkziaa.customerordercasestudy.entity.CartItemsInfo;
+import com.jnkziaa.customerordercasestudy.entity.CompleteOrderArchivedInfo;
 import com.jnkziaa.customerordercasestudy.entity.OrderInfo;
 import com.jnkziaa.customerordercasestudy.entity.ProductInfo;
 //import com.jnkziaa.customerordercasestudy.entity.ShoppingCartInfo;
@@ -32,14 +33,14 @@ public class CustomerPurchaseService {
         return orderInfo.isPresent() ? orderInfo.get() : null;
     }
 
-    public double getShoppingCartTotal(List<CartItemsInfo> cartItemsInfoList){
+    public double getShoppingCartTotal(List<CompleteOrderArchivedInfo> cartItemsInfoList){
 
         double totalCartAmount = 0.0;
         double singleCartAmount;
         int availableQuantity = 0;
 
         System.out.println("SIZE OF SHOPPING LIST IS " + cartItemsInfoList.size());
-        for (CartItemsInfo cart : cartItemsInfoList){
+        for (CompleteOrderArchivedInfo cart : cartItemsInfoList){
             System.out.println("CART INFO IS : " + cart);
             String productName = cart.getProductName();
 

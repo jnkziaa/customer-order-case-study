@@ -23,15 +23,15 @@ public class OrderInfo {
     private String orderDate;
     private String orderDescription;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = CartItemsInfo.class)
-    @JoinColumn(name = "shoppingCardID", referencedColumnName = "oID")
-    private List<CartItemsInfo> cartItems;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = CompleteOrderArchivedInfo.class)
+    @JoinColumn(name = "shoppingCartID", referencedColumnName = "oID")
+    private List<CompleteOrderArchivedInfo> cartItems;
     @OneToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "customer_ID", referencedColumnName = "cID")
+    @JoinColumn(name = "customerOrder_ID", referencedColumnName = "cID")
     private CustomerInfo customer;
 
 
-    public OrderInfo(String invoiceNumber, double totalCostOfCart, String orderDate, String orderDescription, List<CartItemsInfo> cartItems, CustomerInfo customer) {
+    public OrderInfo(String invoiceNumber, double totalCostOfCart, String orderDate, String orderDescription, List<CompleteOrderArchivedInfo> cartItems, CustomerInfo customer) {
         this.invoiceNumber = invoiceNumber;
         this.totalCostOfCart = totalCostOfCart;
         this.orderDate = orderDate;

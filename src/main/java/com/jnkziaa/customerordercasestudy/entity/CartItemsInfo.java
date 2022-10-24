@@ -13,7 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "CART_ITEMS_INFO")
-public class CartItemsInfo {
+public class CartItemsInfo{
 
     @Id
     @GeneratedValue(generator = "uuid2")
@@ -23,7 +23,7 @@ public class CartItemsInfo {
     private Long productID;
     private String productName;
 
-    @JoinColumn(name = "customer_ID", referencedColumnName = "cID")
+    @JoinColumn(name = "cid", referencedColumnName = "cID")
     private Long cID;
     private int productQuantityAmount;
     private double totalCost;
