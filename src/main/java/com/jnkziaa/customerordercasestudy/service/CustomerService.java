@@ -2,10 +2,12 @@ package com.jnkziaa.customerordercasestudy.service;
 
 import com.jnkziaa.customerordercasestudy.entity.CustomerInfo;
 import com.jnkziaa.customerordercasestudy.repository.CustomerInfoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CustomerService {
+    @Autowired
     private CustomerInfoRepository customerInfoRepository;
 
     public CustomerService(CustomerInfoRepository customerInfoRepository){

@@ -1,4 +1,5 @@
 package com.jnkziaa.customerordercasestudy.entity;
+import com.jnkziaa.customerordercasestudy.dto.ResponseOrderDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,22 +18,25 @@ public class OrderInfo {
     private Long oID;
 
 
+    private String invoiceNumber;
+    private double totalCostOfCart;
+    private String orderDate;
     private String orderDescription;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = CartItemsInfo.class)
     @JoinColumn(name = "shoppingCardID", referencedColumnName = "oID")
     private List<CartItemsInfo> cartItems;
-
-    private double totalCostOfCart;
     @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "customer_ID", referencedColumnName = "cID")
     private CustomerInfo customer;
 
 
-    public OrderInfo(String orderDescription,CustomerInfo customer , double totalCostOfCart, List<CartItemsInfo> cartItems) {
+    public OrderInfo(String invoiceNumber, double totalCostOfCart, String orderDate, String orderDescription, List<CartItemsInfo> cartItems, CustomerInfo customer) {
+        this.invoiceNumber = invoiceNumber;
+        this.totalCostOfCart = totalCostOfCart;
+        this.orderDate = orderDate;
         this.orderDescription = orderDescription;
         this.cartItems = cartItems;
-        this.totalCostOfCart = totalCostOfCart;
         this.customer = customer;
     }
 }

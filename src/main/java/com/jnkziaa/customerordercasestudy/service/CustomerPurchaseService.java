@@ -7,6 +7,8 @@ import com.jnkziaa.customerordercasestudy.entity.ProductInfo;
 //import com.jnkziaa.customerordercasestudy.entity.ShoppingCartInfo;
 import com.jnkziaa.customerordercasestudy.repository.OrderInfoRepository;
 import com.jnkziaa.customerordercasestudy.repository.ProductInfoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,7 +16,10 @@ import java.util.Optional;
 
 @Service
 public class CustomerPurchaseService {
+
+    @Autowired
     private OrderInfoRepository orderInfoRepository;
+    @Autowired
     private ProductInfoRepository productInfoRepository;
 
     public CustomerPurchaseService(OrderInfoRepository orderInfoRepository, ProductInfoRepository productInfoRepository) {

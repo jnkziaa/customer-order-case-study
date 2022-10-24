@@ -168,13 +168,15 @@ public class ShoppingCartRestController {
             customerInfo = customerService.saveCustomer(customerInfo);
         }
 
+        String invoiceNumber = String.valueOf(UUID.randomUUID());
+        String orderDate = String.valueOf(new Date());
         System.out.println("TOTAL AMOUNT IS :" + amount);
-        OrderInfo orderInfo = new OrderInfo(orderDTO.getOrderDescription(), customerInfo, amount, orderDTO.getCartItems());
+        OrderInfo orderInfo = new OrderInfo(invoiceNumber, amount, orderDate, orderDTO.getOrderDescription(), orderDTO.getCartItems(), customerInfo);
         orderInfo = customerPurchaseService.saveOrder(orderInfo);
 
         responseOrderDTO.setAmount(amount);
-        responseOrderDTO.setDate(String.valueOf(new Date()));
-        responseOrderDTO.setInvoiceNumber(String.valueOf(UUID.randomUUID()));
+        responseOrderDTO.setDate(orderDate);
+        responseOrderDTO.setInvoiceNumber(invoiceNumber);
         responseOrderDTO.setOID(orderInfo.getOID());
         responseOrderDTO.setOrderDescription(orderDTO.getOrderDescription());
 
