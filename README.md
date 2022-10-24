@@ -2,7 +2,8 @@
 READ ME
 
 UML for the following Project
-![image](https://user-images.githubusercontent.com/107880782/197421600-44fba92b-5aae-4f33-8d83-28b7f373b302.png)
+![Data Field Entity Relationship Diagram](https://user-images.githubusercontent.com/107880782/197466953-db0a82dc-b044-45a0-822f-2e4f40ab605d.png)
+
 
 
 1. POST http://localhost:8080/api/addProduct
