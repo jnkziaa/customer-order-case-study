@@ -51,6 +51,7 @@ public class ShoppingCartRestController {
         productService.saveProductInfo(request);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/getAllProducts")
     public ResponseEntity<List<ProductInfo>> getAllProducts(){
         List<ProductInfo> productInfoList = productService.getAllProducts();

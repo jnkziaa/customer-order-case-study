@@ -21,5 +21,6 @@ public class ProductInfo {
     private String productName;
     private int productAvailableQuantity;
     private double productPrice;
+    private String productImage;
 
 }

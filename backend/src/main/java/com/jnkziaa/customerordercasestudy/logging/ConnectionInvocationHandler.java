@@ -1,11 +1,11 @@
-package com.jnkziaa.customerordercasestudy.logging;
+/*package com.jnkziaa.customerordercasestudy.logging;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.util.logging.Logger;
 
-public class ConnectionInvocationHandler implements InvocationHandler {
+public class ConnectionInvocationHandler implements InvocationHandler{
 
     private Connection connection;
     private final static Logger LOGGER =
@@ -14,6 +14,7 @@ public class ConnectionInvocationHandler implements InvocationHandler {
     public ConnectionInvocationHandler(Connection connection) {
         this.connection = connection;
     }
+
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
@@ -26,3 +27,5 @@ public class ConnectionInvocationHandler implements InvocationHandler {
         return returnValue;
     }
 }
+
+ */
