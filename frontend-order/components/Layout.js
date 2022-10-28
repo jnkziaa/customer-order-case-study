@@ -1,10 +1,9 @@
 import React from 'react';
 import Navbar from "./Navbar";
 import Head from "next/head";
-import ProductsList from "./ProductsList";
 
 
-function Layout() {
+function Layout({children}) {
     return (
         <>
             <Head>
@@ -16,8 +15,7 @@ function Layout() {
                     <Navbar/>
                 </header>
                 <main className="container m-auto mt-4 px-4">
-                    <HomePage/>
-                    <ProductsList/>
+                    {children}
                 </main>
                 <footer className="flex h-10 justify-center items-center shadow-inner">
                     Copyright 2022 GENERIC FRUIT NAME

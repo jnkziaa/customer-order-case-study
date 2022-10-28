@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Predicate;
 
 @Service
 public class ProductService {
@@ -30,4 +32,12 @@ public class ProductService {
     }
 
 
+    public ProductInfo getSpecificProduct(Long pid) {
+
+        Optional<ProductInfo> productInfoOptional = productInfoRepository.findById(pid);
+
+
+        return productInfoOptional.get();
+
+    }
 }

@@ -52,11 +52,19 @@ public class ShoppingCartRestController {
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping("/getAllProducts")
+    @GetMapping("/products")
     public ResponseEntity<List<ProductInfo>> getAllProducts(){
         List<ProductInfo> productInfoList = productService.getAllProducts();
 
         return ResponseEntity.ok(productInfoList);
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/products/{pid}")
+    public ResponseEntity<ProductInfo> getSpecificProduct(@PathVariable Long pid){
+        ProductInfo returnProduct = productService.getSpecificProduct(pid);
+
+        return ResponseEntity.ok(returnProduct);
     }
 
     @PostMapping("/addValidUser")
@@ -82,7 +90,7 @@ public class ShoppingCartRestController {
         List<CartItemsInfo> cartItemsInfoList = new ArrayList<>();
 
         for(CartItemsInfo items : showCartItemsService.cartItemsInfoList()){
-            if(items.getCID() == cID){
+            if(Objects.equals(items.getCID(), cID)){
                 cartItemsInfoList.add(items);
             }
         }
