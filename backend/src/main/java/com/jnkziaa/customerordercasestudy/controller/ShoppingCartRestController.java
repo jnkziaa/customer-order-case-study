@@ -46,6 +46,7 @@ public class ShoppingCartRestController {
         this.archivedOrderService = archivedOrderService;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/addProduct")
     public void addProduct(@RequestBody ProductAdditionRequest request){
         productService.saveProductInfo(request);
@@ -67,6 +68,7 @@ public class ShoppingCartRestController {
         return ResponseEntity.ok(returnProduct);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/addValidUser")
     public void addValidUser(@RequestBody UserAdditionRequest request){
         customerRegistrationService.saveCustomerInfo(request);
@@ -79,11 +81,13 @@ public class ShoppingCartRestController {
         return ResponseEntity.ok(customerInfoList);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/addToCart")
     public void showProductsInCart(@RequestBody AddToCartRequest request){
         showCartItemsService.saveCartItemsInfo(request);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/getAllItemsInCart/{cID}")
     public ResponseEntity<List<CartItemsInfo>> getAllItemsInCart(@PathVariable Long cID){
 
@@ -136,6 +140,7 @@ public class ShoppingCartRestController {
         return ResponseEntity.ok(cartItemsInfoList);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping("/clearItemsInCart")
     public void clearItemsInCart(){
         List<CartItemsInfo> cartItemsInfoList = showCartItemsService.cartItemsInfoList();
@@ -143,6 +148,7 @@ public class ShoppingCartRestController {
     }
 
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/placeOrder")
     public ResponseEntity<ResponseOrderDTO> placeOrder(@RequestBody OrderDTO orderDTO){
 
@@ -210,6 +216,7 @@ public class ShoppingCartRestController {
         //return ResponseEntity.ok(new ResponseOrderDTO());
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/getOrder/{orderId}")
     public ResponseEntity<OrderInfo> getOrderInfoDetails(@PathVariable Long orderId){
         OrderInfo orderInfo = customerPurchaseService.getOrderDetails(orderId);

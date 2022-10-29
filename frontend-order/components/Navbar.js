@@ -1,4 +1,6 @@
+
 function Navbar() {
+
     return (
         <nav  className="flex h-20 items-center px-4 justify-between shadow-md bg-gray-800">
             <div className="container flex flex-wrap justify-between items-center mx-auto">
@@ -28,12 +30,15 @@ function Navbar() {
                                aria-current="page">Home</a>
                         </li>
                         <li>
-                            <a href="FruitComponents"
+                            <a href="Products"
                                className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Products</a>
                         </li>
                         <li>
                             <a href="/CartItems"
-                               className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Shopping Cart</a>
+                               className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Shopping Cart
+                                    <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
+                                    </span>
+                            </a>
                         </li>
                         <li>
                             <a href="/Checkout"
@@ -49,5 +54,7 @@ function Navbar() {
         </nav>
     );
 }
+
+
 
 export default Navbar;

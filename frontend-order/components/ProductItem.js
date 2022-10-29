@@ -5,7 +5,7 @@ import Link from "next/link";
 function ProductItem({product}) {
 
     return (
-        <div className="card shadow-md">
+        <div className="card shadow-md bg-gray-300">
             <Link href={`/product/${product.pid}`}>
 
                 <img
@@ -17,11 +17,14 @@ function ProductItem({product}) {
                 <Link href={`/product/${product.productName}`}>
                 </Link>
                 <p className="mb-2 text-lg font-bold text-indigo-600">{product.productName}</p>
-                <p className="mb-2 font-bold">Available Quantity : {product.productAvailableQuantity}</p>
-                <p className="font-extrabold pb-4">${product.productPrice}</p>
-                <button className="primary-button justify-center" type="button">
-                    Add to cart
-                </button>
+                <p className="mb-2 font-bold text-md font-bold text-orange-400">Available Quantity
+                    : {product.productAvailableQuantity}</p>
+                <p className="font-extrabold pb-4 text-red-500">${product.productPrice}</p>
+                <Link href={`/product/${product.pid}`}>
+                    <button className="primary-button justify-center" type="button">
+                        Add to cart
+                    </button>
+                </Link>
             </div>
 
         </div>
