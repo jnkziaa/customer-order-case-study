@@ -4,6 +4,7 @@ package com.jnkziaa.customerordercasestudy.controller;
 import com.jnkziaa.customerordercasestudy.dto.*;
 import com.jnkziaa.customerordercasestudy.entity.*;
 import com.jnkziaa.customerordercasestudy.repository.ProductInfoRepository;
+import com.jnkziaa.customerordercasestudy.repository.UsersInfoRepository;
 import com.jnkziaa.customerordercasestudy.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +30,8 @@ public class ShoppingCartRestController {
     private ProductInfoRepository productInfoRepository;
     @Autowired
     private ArchivedOrderService archivedOrderService;
+    @Autowired
+    private UsersInfoRepository usersInfoRepository;
 
     public ShoppingCartRestController(CustomerPurchaseService customerPurchaseService,
                                       ProductService productService,
@@ -36,7 +39,8 @@ public class ShoppingCartRestController {
                                       ShowCartItemsService showCartItemsService,
                                       CustomerRegistrationService customerRegistrationService,
                                       ProductInfoRepository productInfoRepository,
-                                      ArchivedOrderService archivedOrderService) {
+                                      ArchivedOrderService archivedOrderService,
+                                      UsersInfoRepository usersInfoRepository) {
         this.customerPurchaseService = customerPurchaseService;
         this.productService = productService;
         this.customerService = customerService;
@@ -44,15 +48,18 @@ public class ShoppingCartRestController {
         this.customerRegistrationService = customerRegistrationService;
         this.productInfoRepository = productInfoRepository;
         this.archivedOrderService = archivedOrderService;
+        this.usersInfoRepository = usersInfoRepository;
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+
+
+    //@CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/addProduct")
     public void addProduct(@RequestBody ProductAdditionRequest request){
         productService.saveProductInfo(request);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    //@CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/products")
     public ResponseEntity<List<ProductInfo>> getAllProducts(){
         List<ProductInfo> productInfoList = productService.getAllProducts();
@@ -60,7 +67,7 @@ public class ShoppingCartRestController {
         return ResponseEntity.ok(productInfoList);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    //@CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/products/{pid}")
     public ResponseEntity<ProductInfo> getSpecificProduct(@PathVariable Long pid){
         ProductInfo returnProduct = productService.getSpecificProduct(pid);
@@ -68,7 +75,7 @@ public class ShoppingCartRestController {
         return ResponseEntity.ok(returnProduct);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+   // @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/addValidUser")
     public void addValidUser(@RequestBody UserAdditionRequest request){
         customerRegistrationService.saveCustomerInfo(request);
@@ -81,13 +88,13 @@ public class ShoppingCartRestController {
         return ResponseEntity.ok(customerInfoList);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    //@CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/addToCart")
     public void showProductsInCart(@RequestBody AddToCartRequest request){
         showCartItemsService.saveCartItemsInfo(request);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    //@CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/getAllItemsInCart/{cID}")
     public ResponseEntity<List<CartItemsInfo>> getAllItemsInCart(@PathVariable Long cID){
 
@@ -140,7 +147,7 @@ public class ShoppingCartRestController {
         return ResponseEntity.ok(cartItemsInfoList);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    //@CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping("/clearItemsInCart")
     public void clearItemsInCart(){
         List<CartItemsInfo> cartItemsInfoList = showCartItemsService.cartItemsInfoList();
@@ -148,7 +155,7 @@ public class ShoppingCartRestController {
     }
 
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    //@CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/placeOrder")
     public ResponseEntity<ResponseOrderDTO> placeOrder(@RequestBody OrderDTO orderDTO){
 
@@ -216,7 +223,7 @@ public class ShoppingCartRestController {
         //return ResponseEntity.ok(new ResponseOrderDTO());
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    //@CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/getOrder/{orderId}")
     public ResponseEntity<OrderInfo> getOrderInfoDetails(@PathVariable Long orderId){
         OrderInfo orderInfo = customerPurchaseService.getOrderDetails(orderId);

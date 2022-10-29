@@ -1,10 +1,11 @@
 
-function Navbar() {
 
+function Navbar({output}) {
+
+    console.log({output});
     return (
         <nav  className="flex h-20 items-center px-4 justify-between shadow-md bg-gray-800">
             <div className="container flex flex-wrap justify-between items-center mx-auto">
-                {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
                 <a href="/" className="flex items-center">
                     <img src="https://www.designfreelogoonline.com/wp-content/uploads/2019/09/00677-APPLE-03.png" className="mr-3 h-6 sm:h-9"
                          alt="Flowbite Logo"/>
@@ -36,8 +37,7 @@ function Navbar() {
                         <li>
                             <a href="/CartItems"
                                className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Shopping Cart
-                                    <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
-                                    </span>
+                                
                             </a>
                         </li>
                         <li>
