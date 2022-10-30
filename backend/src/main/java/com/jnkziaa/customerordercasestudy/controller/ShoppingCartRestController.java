@@ -4,7 +4,6 @@ package com.jnkziaa.customerordercasestudy.controller;
 import com.jnkziaa.customerordercasestudy.dto.*;
 import com.jnkziaa.customerordercasestudy.entity.*;
 import com.jnkziaa.customerordercasestudy.repository.ProductInfoRepository;
-import com.jnkziaa.customerordercasestudy.repository.UsersInfoRepository;
 import com.jnkziaa.customerordercasestudy.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,8 +29,6 @@ public class ShoppingCartRestController {
     private ProductInfoRepository productInfoRepository;
     @Autowired
     private ArchivedOrderService archivedOrderService;
-    @Autowired
-    private UsersInfoRepository usersInfoRepository;
 
     public ShoppingCartRestController(CustomerPurchaseService customerPurchaseService,
                                       ProductService productService,
@@ -39,8 +36,8 @@ public class ShoppingCartRestController {
                                       ShowCartItemsService showCartItemsService,
                                       CustomerRegistrationService customerRegistrationService,
                                       ProductInfoRepository productInfoRepository,
-                                      ArchivedOrderService archivedOrderService,
-                                      UsersInfoRepository usersInfoRepository) {
+                                      ArchivedOrderService archivedOrderService
+                                      ) {
         this.customerPurchaseService = customerPurchaseService;
         this.productService = productService;
         this.customerService = customerService;
@@ -48,7 +45,6 @@ public class ShoppingCartRestController {
         this.customerRegistrationService = customerRegistrationService;
         this.productInfoRepository = productInfoRepository;
         this.archivedOrderService = archivedOrderService;
-        this.usersInfoRepository = usersInfoRepository;
     }
 
 
@@ -141,6 +137,7 @@ public class ShoppingCartRestController {
                 items.setProductID(productInfo2.getPID());
                 items.setProductName(productInfo2.getProductName());
                 items.setTotalCost(singleCartAmount);
+                items.setAccumulatedCost(totalCartAmount);
             }
         }
 

@@ -27,5 +27,6 @@ public class CartItemsInfo{
     private Long cID;
     private int productQuantityAmount;
     private double totalCost;
+    private double accumulatedCost;
 
 }

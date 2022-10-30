@@ -10,7 +10,7 @@ function ShoppingCart({cart}) {
                 <Link href={`/product/${cart.productName}`}>
                 </Link>
                 <p className="mb-2 text-lg font-bold text-indigo-600">{cart.productName}</p>
-                <p className="mb-2 font-bold text-md font-bold text-orange-400 justify-left">Bought Quantity
+                <p className="mb-2 font-bold text-md font-bold text-orange-400 justify-left">Cart Quantity
                     : {cart.productQuantityAmount}</p>
                 <p className="font-extrabold pb-4 text-red-500">Product Total Cost : ${cart.totalCost}</p>
 

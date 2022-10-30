@@ -19,7 +19,7 @@ function AccountPage() {
     return (
        <Layout>
                <div className="flex justify-center">
-                   <YouTube videoId="b165xRXy2Oc" opts={videoOptions} />
+                   <img src="https://images.hdqwalls.com/download/minion-bananas-2932x2932.jpg" />
                </div>
        </Layout>
     );
