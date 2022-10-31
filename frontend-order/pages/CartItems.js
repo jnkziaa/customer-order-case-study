@@ -57,7 +57,7 @@ function CartItems({accountCart}) {
 
     return (
         <Layout>
-            <div className="flex px-20 py-20">
+            <div className="bg-gray-500 flex px-20 py-20">
                 <div className="w-1/2 h-1/2 grid grid-rows-3 md:grid-rows-3 lg:grid-rows-4">
                     {accountCart?.map((cart) => (
                         <ShoppingCart cart={cart} key={cart.cartItemID}></ShoppingCart>

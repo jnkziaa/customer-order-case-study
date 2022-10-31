@@ -27,6 +27,9 @@ public class CustomerPurchaseService {
         this.productInfoRepository = productInfoRepository;
     }
 
+    public List<OrderInfo> getAllOrders(){
+        return this.orderInfoRepository.findAll();
+    }
     public OrderInfo getOrderDetails(Long orderID){
         Optional<OrderInfo> orderInfo = this.orderInfoRepository.findById(orderID);
         return orderInfo.isPresent() ? orderInfo.get() : null;

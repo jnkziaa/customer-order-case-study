@@ -14,6 +14,7 @@ public class SignupRequest {
 
     private String city;
     private String stateFrom;
+    private double currentBalance;
 
     private Set<String> role;
 }

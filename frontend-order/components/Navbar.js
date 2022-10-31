@@ -19,7 +19,7 @@ function Navbar({output}) {
                 <Link href="/Home" className="cursor-pointer font-semibold text-lg hover:underline">Home</Link>
                 <Link href="/Products" className="cursor-pointer font-semibold text-lg hover:underline">Products</Link>
                 <Link href="/CartItems" className="cursor-pointer font-semibold text-lg hover:underline">Shopping Cart</Link>
-                <Link href="/" className="cursor-pointer font-semibold text-lg hover:underline">Checkout</Link>
+                <Link href="/Checkout" className="cursor-pointer font-semibold text-lg hover:underline">Checkout</Link>
                 <Link href="/" className="cursor-pointer font-semibold text-lg hover:underline">Blog</Link>
             </div>
             <div className="flex space-x-4">

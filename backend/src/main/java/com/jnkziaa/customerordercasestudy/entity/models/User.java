@@ -44,12 +44,13 @@ public class User{
 
     public User() {
     }
-    public User(String username, String email, String password, String city, String stateFrom) {
+    public User(String username, String email, String password, String city, String stateFrom, double currentBalance) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.city = city;
         this.stateFrom = stateFrom;
+        this.currentBalance = currentBalance;
     }
 
     public String getCity() {

@@ -17,8 +17,8 @@ function Layout({children}) {
                 <main>
                     {children}
                 </main>
-                <footer className="flex h-10 justify-center items-center shadow-inner">
-                    Copyright 2022 GENERIC FRUIT NAME
+                <footer className="flex h-72 justify-center items-center shadow-inner bg-gray-500">
+                    Copyright © 2022 GENERIC FRUIT NAME
                 </footer>
             </div>
         </>

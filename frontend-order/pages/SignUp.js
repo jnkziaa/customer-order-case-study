@@ -40,7 +40,7 @@ export default function SignUp() {
             <div
                 className="bg-[url('https://i.pinimg.com/originals/80/ac/3e/80ac3ee1594b83b98d580e2f4cb058cf.jpg')] h-screen w-screen bg-cover flex flex-row justify-center items-center">
                 <div
-                    className="w-1/4 h-2/3 bg-gradient-to-r from-gray-400 to-gray-500 opacity-80 rounded-lg shadow-lg flex flex-row gap-20">
+                    className="w-1/4 h-2/3 bg-gradient-to-r from-gray-400 to-gray-500 pl-3 opacity-80 rounded-lg shadow-lg flex flex-row gap-20">
                     <div className="flex flex-col">
                         <h1 className="text-white font-bold text-3xl font-unis tracking-wide justify-center whitespace-nowrap flex px-28 pt-5 text-yellow-400"> Create
                             an Account </h1>

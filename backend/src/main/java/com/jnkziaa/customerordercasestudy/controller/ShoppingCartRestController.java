@@ -5,6 +5,7 @@ import com.jnkziaa.customerordercasestudy.dto.*;
 import com.jnkziaa.customerordercasestudy.entity.*;
 import com.jnkziaa.customerordercasestudy.repository.ProductInfoRepository;
 import com.jnkziaa.customerordercasestudy.service.*;
+import org.junit.jupiter.api.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -220,11 +221,17 @@ public class ShoppingCartRestController {
         //return ResponseEntity.ok(new ResponseOrderDTO());
     }
 
-    //@CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/getOrder/{orderId}")
     public ResponseEntity<OrderInfo> getOrderInfoDetails(@PathVariable Long orderId){
         OrderInfo orderInfo = customerPurchaseService.getOrderDetails(orderId);
         return ResponseEntity.ok(orderInfo);
+    }
+
+    //@CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/getOrder")
+    public ResponseEntity<List<OrderInfo>> getAllOrders(){
+        List<OrderInfo> orderInfoList = customerPurchaseService.getAllOrders();
+        return ResponseEntity.ok(orderInfoList);
     }
     /*
     @PostMapping("/customerPurchase")

@@ -29,7 +29,7 @@ const ActualItems = ({products}) => {
 
         return (
             <Layout>
-                <div className="p-5">
+                <div className="p-5 bg-gray-400">
                     <Link href="/Products" className="text-gray-500 font-bold"> Back to Product Page</Link>
                     <div className="grid md:grid-cols-4 md:gap-3 pt-14">
                         <div className="md:col-span-2 rounded ">
