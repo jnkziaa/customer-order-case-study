@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import com.jnkziaa.customerordercasestudy.models.User;
+import com.jnkziaa.customerordercasestudy.entity.models.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -25,14 +25,19 @@ public class UserDetailsImpl implements UserDetails {
     @JsonIgnore
     private String password;
 
+    private String city;
+    private String stateFrom;
+
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserDetailsImpl(Long id, String username, String email, String password,
+    public UserDetailsImpl(Long id, String username, String email, String password,String city, String stateFrom,
                            Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.city = city;
+        this.stateFrom = stateFrom;
         this.authorities = authorities;
     }
 
@@ -46,7 +51,17 @@ public class UserDetailsImpl implements UserDetails {
                 user.getUsername(),
                 user.getEmail(),
                 user.getPassword(),
+                user.getCity(),
+                user.getStateFrom(),
                 authorities);
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getStateFrom() {
+        return stateFrom;
     }
 
     @Override

@@ -10,11 +10,11 @@ function Layout({children}) {
                 <title> Order Management Application</title>
                 <meta name="description" content="Fruit Selling Website"/>
             </Head>
-            <div className="flex min-h-screen flex-col justify-between">
+            <div className="">
                 <header>
                     <Navbar/>
                 </header>
-                <main className="container m-auto mt-4 px-4">
+                <main>
                     {children}
                 </main>
                 <footer className="flex h-10 justify-center items-center shadow-inner">

@@ -1,4 +1,4 @@
-package com.jnkziaa.customerordercasestudy.models;
+package com.jnkziaa.customerordercasestudy.entity.models;
 
 import javax.persistence.*;
 

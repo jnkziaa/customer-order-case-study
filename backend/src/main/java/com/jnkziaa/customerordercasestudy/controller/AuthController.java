@@ -11,9 +11,9 @@ import com.jnkziaa.customerordercasestudy.dto.payload.request.LoginRequest;
 import com.jnkziaa.customerordercasestudy.dto.SignupRequest;
 import com.jnkziaa.customerordercasestudy.dto.payload.response.JwtResponse;
 import com.jnkziaa.customerordercasestudy.dto.payload.response.MessageResponse;
-import com.jnkziaa.customerordercasestudy.models.ERole;
-import com.jnkziaa.customerordercasestudy.models.Role;
-import com.jnkziaa.customerordercasestudy.models.User;
+import com.jnkziaa.customerordercasestudy.entity.models.ERole;
+import com.jnkziaa.customerordercasestudy.entity.models.Role;
+import com.jnkziaa.customerordercasestudy.entity.models.User;
 import com.jnkziaa.customerordercasestudy.repository.RoleRepository;
 import com.jnkziaa.customerordercasestudy.repository.UserRepository;
 import com.jnkziaa.customerordercasestudy.security.jwt.JwtUtils;
@@ -89,7 +89,8 @@ public class AuthController {
         // Create new user's account
         User user = new User(signUpRequest.getUsername(),
                 signUpRequest.getEmail(),
-                encoder.encode(signUpRequest.getPassword()));
+                encoder.encode(signUpRequest.getPassword()), signUpRequest.getCity(), signUpRequest.getStateFrom());
+        System.out.println(user);
 
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();

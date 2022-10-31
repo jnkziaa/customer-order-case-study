@@ -17,7 +17,7 @@ const ActualItems = ({products}) => {
                 cartItemsInfo: {
                     "productName": name,
                     "productQuantityAmount": quantity,
-                    "cid": 1
+                    "cid": 2
                 }
             }),
             headers: {

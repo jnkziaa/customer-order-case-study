@@ -1,60 +1,40 @@
+import Link from "next/link";
 
 
 function Navbar({output}) {
 
     console.log({output});
     return (
-        <nav  className="flex h-20 items-center px-4 justify-between shadow-md bg-gray-800">
-            <div className="container flex flex-wrap justify-between items-center mx-auto">
-                <a href="/" className="flex items-center">
-                    <img src="https://www.designfreelogoonline.com/wp-content/uploads/2019/09/00677-APPLE-03.png" className="mr-3 h-6 sm:h-9"
-                         alt="Flowbite Logo"/>
-                    <span
-                        className="self-center text-xl font-semibold whitespace-nowrap dark:text-white font-bold">Generic Fruit Name</span>
-                </a>
-                <button data-collapse-toggle="navbar-default" type="button"
-                        className="inline-flex items-center p-2 ml-3 text-sm text-gray-800 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        aria-controls="navbar-default" aria-expanded="false">
-                    <span className="sr-only">Open main menu</span>
-                    <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                              clip-rule="evenodd"></path>
-                    </svg>
-                </button>
-                <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-                    <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                        <li>
-                            <a href="AccountPage"
-                               className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                               aria-current="page">Home</a>
-                        </li>
-                        <li>
-                            <a href="Products"
-                               className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Products</a>
-                        </li>
-                        <li>
-                            <a href="/CartItems"
-                               className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Shopping Cart
-                                
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Checkout"
-                               className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Checkout</a>
-                        </li>
-                        <li>
-                            <a href="/Login"
-                               className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Account Login and Registration</a>
-                        </li>
-                    </ul>
-                </div>
+        <nav
+            className="flex h-16 items-center px-4 justify-between shadow-md bg-gray-800">
+            <div className="flex h-16 items-center px-4 justify-between bg-gray-800">
+                <Link href="/">
+                    <img
+                        src="https://www.designfreelogoonline.com/wp-content/uploads/2019/09/00677-APPLE-03.png"
+                        alt=""
+                        className="w-32 h-12 object-contain" />
+                </Link>
+            </div>
+            <div className="hidden lg:flex space-x-8 text-blue-500 flex items-center text-white">
+                <Link href="/Home" className="cursor-pointer font-semibold text-lg hover:underline">Home</Link>
+                <Link href="/Products" className="cursor-pointer font-semibold text-lg hover:underline">Products</Link>
+                <Link href="/CartItems" className="cursor-pointer font-semibold text-lg hover:underline">Shopping Cart</Link>
+                <Link href="/" className="cursor-pointer font-semibold text-lg hover:underline">Checkout</Link>
+                <Link href="/" className="cursor-pointer font-semibold text-lg hover:underline">Blog</Link>
+            </div>
+            <div className="flex space-x-4">
+                <Link href="/SignIn">
+                    <button className="bg-green-400 p-3 rounded-full text-xs px-6 md:text-sm focus:outline-none
+                 hover:shadow-2xl font-semibold hover:text-discord_blurple transition duration-200 ease-in-out
+                 whitespace-nowrap"
+                    >Account
+                    </button>
+                </Link>
+
             </div>
         </nav>
     );
 }
-
 
 
 export default Navbar;

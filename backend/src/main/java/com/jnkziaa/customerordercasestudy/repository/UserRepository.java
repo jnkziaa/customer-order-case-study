@@ -2,7 +2,7 @@ package com.jnkziaa.customerordercasestudy.repository;
 
 import java.util.Optional;
 
-import com.jnkziaa.customerordercasestudy.models.User;
+import com.jnkziaa.customerordercasestudy.entity.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

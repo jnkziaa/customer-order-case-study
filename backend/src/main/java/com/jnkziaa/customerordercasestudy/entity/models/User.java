@@ -1,9 +1,15 @@
-package com.jnkziaa.customerordercasestudy.models;
+package com.jnkziaa.customerordercasestudy.entity.models;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
+
+
 
 
 @Entity
@@ -23,6 +29,11 @@ public class User{
     private String email;
 
     private String password;
+    @Transient
+    private String confirmPassword;
+    private String city;
+    private String stateFrom;
+    private double currentBalance;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
@@ -30,13 +41,31 @@ public class User{
             inverseJoinColumns = @JoinColumn(name = "roleID"))
     private Set<Role> roles = new HashSet<>();
 
+
     public User() {
     }
-
-    public User(String username, String email, String password) {
+    public User(String username, String email, String password, String city, String stateFrom) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.city = city;
+        this.stateFrom = stateFrom;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getStateFrom() {
+        return stateFrom;
+    }
+
+    public void setStateFrom(String stateFrom) {
+        this.stateFrom = stateFrom;
     }
 
     public Long getUserID() {
@@ -78,4 +107,5 @@ public class User{
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
 }

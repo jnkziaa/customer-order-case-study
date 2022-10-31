@@ -1,7 +1,7 @@
 package com.jnkziaa.customerordercasestudy.security.services;
 
 
-import com.jnkziaa.customerordercasestudy.models.User;
+import com.jnkziaa.customerordercasestudy.entity.models.User;
 import com.jnkziaa.customerordercasestudy.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

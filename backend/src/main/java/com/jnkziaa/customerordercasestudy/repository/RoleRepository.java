@@ -1,7 +1,7 @@
 package com.jnkziaa.customerordercasestudy.repository;
 
-import com.jnkziaa.customerordercasestudy.models.ERole;
-import com.jnkziaa.customerordercasestudy.models.Role;
+import com.jnkziaa.customerordercasestudy.entity.models.ERole;
+import com.jnkziaa.customerordercasestudy.entity.models.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

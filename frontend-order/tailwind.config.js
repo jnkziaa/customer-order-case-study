@@ -5,7 +5,12 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage : {
+        'discordHero': "url(../public/assets/discord.jpg')",
+        'discord_background': "url(../public/assets/discord_background.jpg')",
+      },
+    },
   },
   plugins: [],
 }
