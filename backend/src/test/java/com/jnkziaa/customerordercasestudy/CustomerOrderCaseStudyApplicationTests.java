@@ -1,5 +1,7 @@
 package com.jnkziaa.customerordercasestudy;
 
+import io.restassured.RestAssured;
+import org.assertj.core.api.BDDAssumptions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -7,7 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class CustomerOrderCaseStudyApplicationTests {
 
     @Test
-    void contextLoads() {
+    public void checkGetBoards(){
+        RestAssured.given().qu
     }
 
 }

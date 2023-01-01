@@ -25,6 +25,12 @@ public class ShowCartItemsService {
     }
 
     @Transactional
+    public void deleteCartItemsInfo(AddToCartRequest request){
+        CartItemsInfo cartItemsInfo = request.getCartItemsInfo();
+        cartItemsInfoRepository.delete(cartItemsInfo);
+    }
+
+    @Transactional
     public void saveCartItemsInfo(AddToCartRequest request) {
         CartItemsInfo cartItemsInfo = request.getCartItemsInfo();
         cartItemsInfoRepository.save(cartItemsInfo);

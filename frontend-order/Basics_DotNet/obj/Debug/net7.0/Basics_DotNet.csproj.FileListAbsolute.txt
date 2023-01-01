@@ -1,0 +1,15 @@
+C:\SpringBoot\customer-order-case-study\frontend-order\Basics_DotNet\bin\Debug\net7.0\Basics_DotNet.exe
+C:\SpringBoot\customer-order-case-study\frontend-order\Basics_DotNet\bin\Debug\net7.0\Basics_DotNet.deps.json
+C:\SpringBoot\customer-order-case-study\frontend-order\Basics_DotNet\bin\Debug\net7.0\Basics_DotNet.runtimeconfig.json
+C:\SpringBoot\customer-order-case-study\frontend-order\Basics_DotNet\bin\Debug\net7.0\Basics_DotNet.dll
+C:\SpringBoot\customer-order-case-study\frontend-order\Basics_DotNet\bin\Debug\net7.0\Basics_DotNet.pdb
+C:\SpringBoot\customer-order-case-study\frontend-order\Basics_DotNet\obj\Debug\net7.0\Basics_DotNet.csproj.AssemblyReference.cache
+C:\SpringBoot\customer-order-case-study\frontend-order\Basics_DotNet\obj\Debug\net7.0\Basics_DotNet.GeneratedMSBuildEditorConfig.editorconfig
+C:\SpringBoot\customer-order-case-study\frontend-order\Basics_DotNet\obj\Debug\net7.0\Basics_DotNet.AssemblyInfoInputs.cache
+C:\SpringBoot\customer-order-case-study\frontend-order\Basics_DotNet\obj\Debug\net7.0\Basics_DotNet.AssemblyInfo.cs
+C:\SpringBoot\customer-order-case-study\frontend-order\Basics_DotNet\obj\Debug\net7.0\Basics_DotNet.csproj.CoreCompileInputs.cache
+C:\SpringBoot\customer-order-case-study\frontend-order\Basics_DotNet\obj\Debug\net7.0\Basics_DotNet.dll
+C:\SpringBoot\customer-order-case-study\frontend-order\Basics_DotNet\obj\Debug\net7.0\refint\Basics_DotNet.dll
+C:\SpringBoot\customer-order-case-study\frontend-order\Basics_DotNet\obj\Debug\net7.0\Basics_DotNet.pdb
+C:\SpringBoot\customer-order-case-study\frontend-order\Basics_DotNet\obj\Debug\net7.0\Basics_DotNet.genruntimeconfig.cache
+C:\SpringBoot\customer-order-case-study\frontend-order\Basics_DotNet\obj\Debug\net7.0\ref\Basics_DotNet.dll

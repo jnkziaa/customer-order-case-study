@@ -57,6 +57,14 @@ public class ShoppingCartRestController {
     }
 
     //@CrossOrigin(origins = "http://localhost:3000")
+    @DeleteMapping("/clearItemsInCart")
+    public void clearItemsInCart(){
+        List<CartItemsInfo> cartItemsInfoList = showCartItemsService.cartItemsInfoList();
+        cartItemsInfoList.clear();
+    }
+
+
+    //@CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/products")
     public ResponseEntity<List<ProductInfo>> getAllProducts(){
         List<ProductInfo> productInfoList = productService.getAllProducts();
@@ -145,12 +153,6 @@ public class ShoppingCartRestController {
         return ResponseEntity.ok(cartItemsInfoList);
     }
 
-    //@CrossOrigin(origins = "http://localhost:3000")
-    @DeleteMapping("/clearItemsInCart")
-    public void clearItemsInCart(){
-        List<CartItemsInfo> cartItemsInfoList = showCartItemsService.cartItemsInfoList();
-        cartItemsInfoList.clear();
-    }
 
 
     @CrossOrigin(origins = "http://localhost:3000")

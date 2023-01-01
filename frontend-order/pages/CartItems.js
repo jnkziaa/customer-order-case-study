@@ -4,14 +4,11 @@ import ShoppingCart from "../components/ShoppingCart";
 import {useRouter} from "next/router";
 
 
-
-
 function CartItems({accountCart}) {
     const router = useRouter()
     let subtotal = 0;
     var brack = {}
-    var cartItems = [];
-    brack.cartItems = cartItems;
+    brack.cartItems = [];
     var items = {}
     for (let i = 0; i < accountCart.length; i++) {
         subtotal += accountCart[i].totalCost;
@@ -21,10 +18,8 @@ function CartItems({accountCart}) {
         }
         brack.cartItems.push(items);
     }
-
     console.log("WATCH THIS")
     const stringified = JSON.stringify(brack);
-
     console.log(stringified);
     let fixedSub = subtotal.toFixed(2);
 
@@ -46,7 +41,6 @@ function CartItems({accountCart}) {
             headers: {
                 'Content-Type': 'application/json'
             },
-
         })
         if(response.ok){
             await router.push("/Checkout")
